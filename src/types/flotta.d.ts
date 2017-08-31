@@ -7,8 +7,8 @@ import { BusinessHolder, Token, AddBHError } from './business-holder';
 export interface FlottaInterface {
   apiKey: string;
   flottaEndPoint: string;
-  GraphQLClient: ApolloClient;
-  AddShipment(token: string, storeId: string, shipment: InputShipment): Promise<Shipment | Error>;
-  AddStore(token: string, store: InputStore): Promise<Store | Error>;
-  AddBusinessHolder(businessHolder: BusinessHolder): Promise<Token | AddBHError>;
+  graphQLClient: ApolloClient;
+  addShipment(token: string, storeId: string, shipment: InputShipment): Promise<Shipment | Error>;
+  addStore(token: string, store: InputStore): Promise<Store | Error>;
+  addBusinessHolder(businessHolder: BusinessHolder): Promise<Token | AddBHError>;
 }

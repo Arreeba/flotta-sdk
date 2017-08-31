@@ -19,7 +19,7 @@ class Flotta implements FlottaInterface {
 
   flottaEndPoint: string;
 
-  GraphQLClient: ApolloClient;
+  graphQLClient: ApolloClient;
 
   constructor(apiKey: string, flottaEndPoint: string) {
     if (!apiKey) throw new Error('apiKey it\'s required!');
@@ -31,21 +31,21 @@ class Flotta implements FlottaInterface {
       uri: `${this.flottaEndPoint}/graphql`,
     });
 
-    this.GraphQLClient = new ApolloClient({
+    this.graphQLClient = new ApolloClient({
       networkInterface,
     });
   }
 
-  AddShipment(token: string, storeId: string, shipment: InputShipment): Promise<Shipment | Error | any> {
+  addShipment(token: string, storeId: string, shipment: InputShipment): Promise<Shipment | Error | any> {
     if (!token) throw new Error('token it\'s required');
     if (!storeId) throw new Error('storeId it\'s required');
 
-    this.GraphQLClient.networkInterface._opts.headers = {
+    this.graphQLClient.networkInterface._opts.headers = {
       Authorization: `Bearer ${token}`,
       'flotta-key': this.apiKey, // NOT ALREADY IMPLEMENTED
     };
 
-    return this.GraphQLClient.mutate({
+    return this.graphQLClient.mutate({
       mutation: ADD_SHIPMENT_MUTATION,
       variables: {
         storeId,
@@ -54,21 +54,21 @@ class Flotta implements FlottaInterface {
     });
   }
 
-  AddStore(token: string, store: InputStore): Promise<Store | Error | any> {
+  addStore(token: string, store: InputStore): Promise<Store | Error | any> {
     if (!token) throw new Error('token it\'s required');
 
-    this.GraphQLClient.networkInterface._opts.headers = {
+    this.graphQLClient.networkInterface._opts.headers = {
       Authorization: `Bearer ${token}`,
       'flotta-key': this.apiKey, // NOT ALREADY IMPLEMENTED
     };
 
-    return this.GraphQLClient.mutate({
+    return this.graphQLClient.mutate({
       mutation: ADD_STORE_MUTATION,
       variables: { store },
     });
   }
 
-  AddBusinessHolder(businessHolder: BusinessHolder): Promise<Token | AddBHError> {
+  addBusinessHolder(businessHolder: BusinessHolder): Promise<Token | AddBHError> {
 
     const BH_REGISTRATION = `${this.flottaEndPoint}/api/v1/businnes-holder/registration`;
     const body = JSON.stringify({ ...businessHolder });

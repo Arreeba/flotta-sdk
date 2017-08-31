@@ -1,14 +1,14 @@
 import Flotta from '../src';
 
-describe('Flotta.AddStore', () => {
+describe('Flotta.addStore', () => {
   it('should add store', () => {
 
     const client = new Flotta('your-api-key', 'http://localhost:5000');
     const token = 'your-token';
 
-    client.GraphQLClient.mutate = jest.fn();
+    client.graphQLClient.mutate = jest.fn();
 
-    client.AddStore(token, {
+    client.addStore(token, {
       address: {
         city: 'Milano',
         street: 'Via Melchiorre Gioia',
@@ -25,7 +25,7 @@ describe('Flotta.AddStore', () => {
       name: 'Vynil'
     });
 
-    const mockedMutation = client.GraphQLClient.mutate;
+    const mockedMutation = client.graphQLClient.mutate;
 
     expect(mockedMutation.mock.calls.length).toBe(1);
 
