@@ -1,0 +1,65 @@
+{
+  "name": "flotta-sdk",
+  "version": "1.0.0",
+  "description": "Flotta API wrapper",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
+    "test": "jest --runInBand --verbose",
+    "test:watch": "jest -w",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arreeba/flotta-sdk.git"
+  },
+  "keywords": [
+    "Flotta",
+    "Ristoranti",
+    "Tracking",
+    "Drivers"
+  ],
+  "author": "Vittorio Adamo <vittorio.adamo@arreeba.com> (https://ristoranti.it/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Arreeba/flotta-sdk/issues"
+  },
+  "homepage": "https://github.com/Arreeba/flotta-sdk#readme",
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "**/test/**/*.test.(ts|js)"
+    ],
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "@types/graphql": "^0.10.2",
+    "@types/jest": "^20.0.8",
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.13",
+    "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.4.0",
+    "tslint-config-standard": "^6.0.1",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "apollo-client": "^1.9.1",
+    "graphql-tag": "^2.4.2",
+    "isomorphic-fetch": "^2.2.1",
+    "node-fetch": "^1.7.2"
+  }
+}
