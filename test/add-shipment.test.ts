@@ -1,15 +1,15 @@
 import Flotta from '../src';
 
-describe('Flotta.AddShipment', () => {
+describe('Flotta.addShipment', () => {
   it('should add shipment', () => {
 
     const client = new Flotta('your-api-key', 'http://localhost:5000');
     const token = 'your-token';
     const storeId = 'store-id';
 
-    client.GraphQLClient.mutate = jest.fn();
+    client.graphQLClient.mutate = jest.fn();
 
-    client.AddShipment(token, storeId, {
+    client.addShipment(token, storeId, {
       delivery: {
         customer: {
           firstName: 'Darth',
@@ -54,7 +54,7 @@ describe('Flotta.AddShipment', () => {
       notes: 'in fondo al cortile a destra'
     });
 
-    const mockedMutation = client.GraphQLClient.mutate;
+    const mockedMutation = client.graphQLClient.mutate;
 
     expect(mockedMutation.mock.calls.length).toBe(1);
 
