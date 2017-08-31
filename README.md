@@ -1,11 +1,15 @@
 # Flotta-sdk
 ### Flotta API wrapper
 
-- [Installation](#Installation)
-- [Configuration](#Configuration)
-- [API Reference](#API)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [API Reference](#api)
 
 ### Installation
+ 
+```bash
+npm i flotta-sdk --save
+```
 
 ```bash
 yarn add flotta-sdk
@@ -24,10 +28,10 @@ const client = new Flotta(
 
 ### API
 
-- AddBusinessHolder
+- addBusinessHolder
 
 ```javascript
-client.AddBusinessHolder({
+client.addBusinessHolder({
   fisrtName: 'SDK',
   secondName: 'SDK',
   email: 'sdk@sdk.com',
@@ -37,10 +41,10 @@ client.AddBusinessHolder({
   .catch(err => { throw new Error(err); });
 ```
 
-- AddStore
+- addStore
 
 ```javascript
-client.AddStore(token, {
+client.addStore(token, {
   address: {
     city: 'Milano',
     street: 'Via Melchiorre Gioia',
@@ -60,10 +64,10 @@ client.AddStore(token, {
   .catch(err => { throw new Error(err); });
 ```
 
-- AddShipment
+- addShipment
 
 ```javascript
-client.AddShipment(token, storeId, {
+client.addShipment(token, storeId, {
   delivery: {
     customer: {
       firstName: 'Darth',
