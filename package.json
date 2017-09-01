@@ -1,22 +1,24 @@
 {
   "name": "flotta-sdk",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Flotta API wrapper",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "commit": "git-cz",        
     "start": "ts-node ./src/index.ts",
     "prepublishOnly": "rimraf dist; tsc",
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "test": "jest --runInBand --verbose",
-    "test:watch": "jest -w",
-    "test:coverage": "jest --coverage"
+    "test": "jest --runInBand --verbose --forceExit",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Arreeba/flotta-sdk.git"
+    "url": "https://github.com/Arreeba/flotta-sdk.git"
   },
   "keywords": [
     "Flotta",
@@ -51,8 +53,11 @@
   "devDependencies": {
     "@types/graphql": "^0.10.2",
     "@types/jest": "^20.0.8",
+    "commitizen": "2.9.6",
+    "cz-conventional-changelog": "2.0.0",
     "jest": "^20.0.4",
     "rimraf": "^2.6.1",
+    "semantic-release": "^7.0.2",
     "ts-jest": "^20.0.13",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
@@ -65,5 +70,10 @@
     "graphql-tag": "^2.4.2",
     "isomorphic-fetch": "^2.2.1",
     "node-fetch": "^1.7.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
