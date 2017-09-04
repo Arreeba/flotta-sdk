@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "commit": "git-cz",        
+    "commit": "git-cz",
     "start": "ts-node ./src/index.ts",
     "prepublishOnly": "rimraf dist; tsc",
     "build:ts": "tsc",
