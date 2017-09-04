@@ -1,5 +1,6 @@
 # Flotta-sdk
 
+[![Build Status](https://travis-ci.org/Arreeba/flotta-sdk.svg?branch=master)](https://travis-ci.org/Arreeba/flotta-sdk)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 
