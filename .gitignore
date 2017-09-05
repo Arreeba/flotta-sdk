@@ -9,8 +9,6 @@ npm-debug.log
 *.tgz
 *.log
 
-dist/
-
 # editor
 .vscode
 
